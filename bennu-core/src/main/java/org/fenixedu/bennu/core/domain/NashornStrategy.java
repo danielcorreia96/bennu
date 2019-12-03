@@ -59,8 +59,7 @@ public final class NashornStrategy<T> {
     @SuppressWarnings("unchecked")
     private T getImplementation(String code, Class<?> type) {
         try {
-            ScriptEngineManager engineManager = new ScriptEngineManager();
-            ScriptEngine engine = engineManager.getEngineByName("nashorn");
+            ScriptEngine engine = new ScriptEngineManager(null).getEngineByName("nashorn");
             if (engine == null) {
                 throw new Error("A javascript engine could not be found!");
             }
